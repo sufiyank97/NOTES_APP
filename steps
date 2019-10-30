@@ -1,0 +1,10 @@
+npm init -y
+npm install --save express
+nodemon index.js
+npm install --save mongoose
+create app/
+    /controllers
+    /models
+create config
+    /database.js
+    /routes.js

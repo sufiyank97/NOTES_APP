@@ -1,0 +1,23 @@
+1.under the node folder create a new folder called as ticket-master-bk
+setup,install,and configure express
+create 3 schemas
+    1.Customer
+        -name
+        -email
+        -mobile
+    
+    2.Department
+        -name
+    
+    3.Employee
+        -name
+        -email
+        -mobile
+create routes
+    get /customers  -   list all customers
+    get /Departments    -   list all Department
+    get /Employee   -   list all Employee
+
+    post /customers -   create a customer -name,email,mobile
+    post /Departments -create  a Department -name
+    post /Employee - create a 

@@ -1,0 +1,28 @@
+mongoose - ODM - object document mapper middle ware to connect db
+
+1.map a model to a collection
+2.map an object to a document
+3.map an object's property to a document's field
+
+
+sequalize- sql database
+
+
+
+Buisness logic is created in model file
+
+
+
+authenticate is user login
+authourize is giving privilege
+
+
+
+strong  parameters [taking up the data which is need]
+
+
+
+user authentication
+decent design
+4 models in crud operations
+redux
