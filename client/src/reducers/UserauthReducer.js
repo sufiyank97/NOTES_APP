@@ -1,11 +1,17 @@
-const userAuthReducer=(state={},action)=>{
-    switch(action.type){
-        case 'SET_USER':{
-            return {...action.payload}
-        }
-        default:{
-            return {...state}
-        }
+const userAuthReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_USER": {
+      return { ...action.payload };
     }
-}
-export default userAuthReducer
+    case "REMOVE_USER": {
+      return {};
+    }
+    case "ACCOUNT_USER": {
+      return { ...action.payload };
+    }
+    default: {
+      return { ...state };
+    }
+  }
+};
+export default userAuthReducer;

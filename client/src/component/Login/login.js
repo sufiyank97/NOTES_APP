@@ -24,24 +24,7 @@ class Login extends React.Component {
       password: this.state.password
     };
     this.props.dispatch(startSetUser(formData));
-    // axios.post('/users/login',formData)
-    // .then(response=>{
-    //     if(response.data.errors){
-    //         window.alert(response.data.message)
-    //         console.log("validation error",response.data.errors)
-    //     }
-    //     else{
-    //         console.log("Success",response.data.tokens.length-1)
-    //         // const token1
-    //         // localStorage.setItem('token',response.data)
-    //         // console.log(token)
-    //         // localStorage.setItem(response)
-    //         // this.props.history.push('/')
-    //     }
-    // })
-    // .catch(err=>{
-    //     console.log(err)
-    // })
+    this.props.history.push("/");
   }
   render() {
     return (

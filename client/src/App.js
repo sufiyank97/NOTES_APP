@@ -1,18 +1,25 @@
 import React from "react";
 // import logo from './logo.svg';
 // import './App.css';
-import CategoryList from "./component/category/List";
+import CategoriesList from "./component/category/List";
+
+import NotesList from "./component/notes/notesList";
+import AddNote from "./component/notes/addNote";
+import NoteShow from "./component/notes/noteShow";
+
 import Register from "./component/Register/Register";
 import Login from "./component/Login/login";
+import Logout from "./component/logout/logout";
+import Account from "./component/account/account";
 import { connect } from "react-redux";
-import { BrowserRouter, Link, Route } from "react-router-dom";
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import "./bootstrap.css";
 
 function App(props) {
   return (
-    <div>
+    <div className="container h-100">
       <BrowserRouter>
-        <nav className="navbar navbar-dark bg-dark d-flex">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
           <Link to="/" className="navbar-brand ">
             Notes App
           </Link>
@@ -22,34 +29,39 @@ function App(props) {
                 Login
               </Link>
               <Link to="/register" className="nav-link">
-                {" "}
-                Register{" "}
+                Register
               </Link>
             </React.Fragment>
           ) : (
             <React.Fragment>
               <Link to="/categories" className="nav-link">
-                {" "}
-                Categories{" "}
+                Categories
               </Link>
               <Link to="/notes" className="nav-link">
-                {" "}
-                Notes{" "}
+                Notes
               </Link>
               {/* <Link to='/delete' className="nav-link" > Settings </Link> */}
               <Link to="/account" className="nav-link">
                 Account
               </Link>
               <Link to="/logout" className="nav-link">
-                {" "}
-                Logout{" "}
+                Logout
               </Link>
             </React.Fragment>
           )}
         </nav>
-        <Route path="/categories" component={CategoryList} />
-        <Route path="/register" component={Register} exact={true} />
-        <Route path="/login" component={Login} exact={true} />
+        <Switch>
+          <Route path="/notes/edit/:id" exact component={AddNote} />
+          <Route path="/notes/add" exact component={AddNote} />
+          <Route path="/notes/:id" exact component={NoteShow} />
+          <Route path="/categories" component={CategoriesList} />
+          <Route path="/notes" exact component={NotesList} />
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
+          <Route path="/account" component={Account} />
+          <Route path="/logout" component={Logout} />
+          {/* <Route path="/" component={Home} /> */}
+        </Switch>
       </BrowserRouter>
     </div>
   );
