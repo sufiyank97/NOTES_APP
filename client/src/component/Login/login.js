@@ -1,5 +1,4 @@
 import React from "react";
-// import axios from "../../config/axios";
 import { startSetUser } from "../../actions/user";
 import { connect } from "react-redux";
 class Login extends React.Component {
