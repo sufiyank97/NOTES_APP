@@ -83,14 +83,18 @@ class CategoriesList extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.categories.map(category => (
-              <CatList
-                key={category._id}
-                id={category._id}
-                name={category.name}
-                handleRemove={this.handleRemove}
-              />
-            ))}
+            {this.state.categories.length === 0 ? (
+              <div>loading</div>
+            ) : (
+              this.state.categories.map(category => (
+                <CatList
+                  key={category._id}
+                  id={category._id}
+                  name={category.name}
+                  handleRemove={this.handleRemove}
+                />
+              ))
+            )}
           </tbody>
         </table>
         <form onSubmit={this.handleAdd}>
