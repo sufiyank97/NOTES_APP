@@ -26,7 +26,8 @@ export default class NoteShow extends React.Component {
         }
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
+        window.alert(err);
       });
   }
 
@@ -36,11 +37,14 @@ export default class NoteShow extends React.Component {
         {this.state.note._id && (
           <div className="card" style={{ width: "18rem" }}>
             <div className="card-body">
-              <h5 className="card-title">{this.state.note.title}</h5>
+              <h5 className="card-title">Title:-{this.state.note.title}</h5>
               <h6 className="card-subtitle mb-2 text-muted">
+                Category:-
                 {this.state.note.categoryId.name}
               </h6>
-              <p className="card-text">{this.state.note.description}</p>
+              <p className="card-text">
+                Description:-{this.state.note.description}
+              </p>
               <Link className="btn btn-primary card-link" to="/notes">
                 Back
               </Link>

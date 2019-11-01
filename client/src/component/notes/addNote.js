@@ -13,7 +13,7 @@ class AddNote extends React.Component {
   }
 
   handleChange = e => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -26,7 +26,7 @@ class AddNote extends React.Component {
       categoryId: this.state.select
     };
     if (this.props.match.params.id) {
-      console.log("wrong");
+      //console.log("wrong");
       const id = this.props.match.params.id;
       axios
         .put(`/notes/${id}`, body, {
@@ -38,7 +38,7 @@ class AddNote extends React.Component {
           if (response.data.message) {
             window.alert("validation failed");
           } else {
-            console.log(response.data);
+            //console.log(response.data);
             this.setState(
               {
                 title: "",
@@ -55,7 +55,7 @@ class AddNote extends React.Component {
           window.alert("something went wrong");
         });
     } else {
-      console.log("right");
+      //console.log("right");
       axios
         .post("/notes", body, {
           headers: {
@@ -66,7 +66,7 @@ class AddNote extends React.Component {
           if (response.data.errors) {
             window.alert("validation failed");
           } else {
-            console.log(response.data);
+            //console.log(response.data);
             this.setState(
               {
                 title: "",
@@ -94,7 +94,7 @@ class AddNote extends React.Component {
       .then(response => {
         this.setState({ categories: response.data }, () => {
           if (this.props.match.params.id) {
-            console.log("1");
+            //console.log("1");
             const id = this.props.match.params.id;
             axios
               .get(`/notes/${id}`, {
@@ -106,11 +106,12 @@ class AddNote extends React.Component {
                 this.setState(
                   {
                     title: response.data.title,
-                    description: response.data.description
-                  },
-                  () => {
-                    this.setState({ select: response.data.categoryId });
+                    description: response.data.description,
+                    categories: [response.data.categoryId]
                   }
+                  // () => {
+                  //   this.setState({ select: response.data.categoryId });
+                  // }
                 );
               })
               .catch(err => {
@@ -180,7 +181,6 @@ class AddNote extends React.Component {
               onChange={this.handleChange}
               name="select"
             >
-              <option value="">Choose...</option>
               {this.state.categories.map(category => {
                 return (
                   <option key={category._id} value={category._id}>
@@ -188,6 +188,7 @@ class AddNote extends React.Component {
                   </option>
                 );
               })}
+              <option>Choose...</option>
             </select>
           </div>
           <input type="submit" className="btn btn-primary" value="Submit" />

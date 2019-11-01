@@ -6,10 +6,10 @@ import { connect } from "react-redux";
 function Account(props) {
   //   return <Redirect to="/login" />;
   return (
-    <div>
-      Name:{props.user.username}
-      <br />
-      Email:-{props.user.email}
+    <div className="container">
+      <h1>Name:-{props.user.username}</h1>
+
+      <h1>Email:-{props.user.email}</h1>
     </div>
   );
 }

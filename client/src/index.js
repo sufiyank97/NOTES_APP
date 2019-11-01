@@ -22,10 +22,19 @@ if (localStorage.getItem("token")) {
         "x-auth": localStorage.getItem("token")
       }
     })
-    .then(response => {
-      const user = response.data;
-      store.dispatch(setUser(user));
-    });
+    .then(
+      response => {
+        console.log(response.data, "sdfds");
+        if (response.data.errors) {
+          console.log(response.data);
+        }
+        const user = response.data;
+        store.dispatch(setUser(user));
+      },
+      () => {
+        console.log("dsffs");
+      }
+    );
 }
 const ele = (
   <Provider store={store}>

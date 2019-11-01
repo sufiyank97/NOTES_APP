@@ -17,9 +17,9 @@ export default class NotesList extends React.Component {
         }
       })
       .then(response => {
-        console.log(response.data, "data");
+        //console.log(response.data, "data");
         this.setState({ notes: response.data }, () => {
-          console.log(this.state.notes);
+          //console.log(this.state.notes);
         });
       })
       .catch(err => {
@@ -44,10 +44,10 @@ export default class NotesList extends React.Component {
   };
 
   render() {
-    console.log(this.state);
+    //console.log(this.state);
     return (
       <div className="row h-100 justify-content-center align-items-center mt-5">
-        <h3>Notes - </h3>
+        <h3>Notes - {this.state.notes.length}</h3>
         <table className="table">
           <thead>
             <tr>

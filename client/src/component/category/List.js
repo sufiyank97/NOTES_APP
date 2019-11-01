@@ -18,9 +18,12 @@ class CategoriesList extends React.Component {
         }
       })
       .then(response => {
-        this.setState({ categories: response.data });
+        this.setState({ categories: response.data }, () => {
+          console.log(this.state.categories);
+        });
       })
       .catch(err => {
+        console.log(err, "sdfsdf");
         window.alert(err);
       });
   }
@@ -73,47 +76,50 @@ class CategoriesList extends React.Component {
 
   render() {
     return (
-      <div className="row w-100 justify-content-center">
-        <h3>Categories -</h3>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.categories.length === 0 ? (
-              <div>loading</div>
-            ) : (
-              this.state.categories.map(category => (
-                <CatList
-                  key={category._id}
-                  id={category._id}
-                  name={category.name}
-                  handleRemove={this.handleRemove}
-                />
-              ))
-            )}
-          </tbody>
-        </table>
-        <form onSubmit={this.handleAdd}>
-          <div className="form-group">
-            <label>
-              <input
-                required
-                type="text"
-                className="form-control"
-                value={this.state.val}
-                placeholder="Category Name"
-                onChange={this.handleChange}
-              />
-            </label>
+      <div className="container mt-5 text-center">
+        <h3>Categories -{this.state.categories.length}</h3>
+        <div className="row h-100 justify-content-center align-items-center">
+          <div className="col-8">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.categories.map(category => (
+                  <CatList
+                    key={category._id}
+                    id={category._id}
+                    name={category.name}
+                    handleRemove={this.handleRemove}
+                  />
+                ))}
+              </tbody>
+            </table>
           </div>
-          <button type="submit" className="btn btn-primary">
-            Add
-          </button>
-        </form>
+          <div className="col-md-4">
+            <h3>Add Categories</h3>
+            <form onSubmit={this.handleAdd}>
+              <div className="form-group">
+                <label>
+                  <input
+                    required
+                    type="text"
+                    className="form-control"
+                    value={this.state.val}
+                    placeholder="Category Name"
+                    onChange={this.handleChange}
+                  />
+                </label>
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Add
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }

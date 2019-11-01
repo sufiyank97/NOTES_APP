@@ -1,6 +1,8 @@
 const Category = require("../models/category");
 
 module.exports.list = (req, res) => {
+  // console.log("asdasda");
+  // console.log("sssss");
   Category.find({ userId: req.user._id })
     .then(categories => {
       res.json(categories);

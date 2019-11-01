@@ -39,6 +39,7 @@ export default class Register extends React.Component {
         })
         .catch(err => {
           console.log(err);
+          window.alert(err);
         });
     } else {
       window.alert(
