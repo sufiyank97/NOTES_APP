@@ -26,7 +26,7 @@ if (localStorage.getItem("token")) {
       response => {
         console.log(response.data, "sdfds");
         if (response.data.errors) {
-          console.log(response.data);
+          window.alert(response.data);
         }
         const user = response.data;
         store.dispatch(setUser(user));
@@ -34,7 +34,10 @@ if (localStorage.getItem("token")) {
       () => {
         console.log("dsffs");
       }
-    );
+    )
+    .catch(err => {
+      window.alert(err);
+    });
 }
 const ele = (
   <Provider store={store}>

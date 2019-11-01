@@ -24,14 +24,19 @@ export const removeUser = () => {
 };
 export const startSetUser = formData => {
   return dispatch => {
-    axios.post("/users/login", formData).then(response => {
-      if (response.data.errors) {
-        alert(response.data.errors);
-      } else {
-        localStorage.setItem("token", response.data.token);
-        dispatch(setUser(response.data.user));
-      }
-    });
+    axios
+      .post("/users/login", formData)
+      .then(response => {
+        if (response.data.errors) {
+          window.alert(response.data.errors);
+        } else {
+          localStorage.setItem("token", response.data.token);
+          dispatch(setUser(response.data.user));
+        }
+      })
+      .catch(err => {
+        window.alert(err);
+      });
   };
 };
 
@@ -71,7 +76,7 @@ export const startAccountUser = () => {
         dispatch(accountUser(user));
       })
       .catch(err => {
-        console.log(err);
+        window.log(err);
       });
   };
 };
