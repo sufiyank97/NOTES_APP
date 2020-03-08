@@ -117,7 +117,8 @@ class AddNote extends React.Component {
               .catch(err => {
                 window.alert(err);
               });
-          } else {
+          }
+          else {
             if (this.state.categories.length > 0) {
               this.setState(prev => {
                 return {
@@ -181,6 +182,7 @@ class AddNote extends React.Component {
               onChange={this.handleChange}
               name="select"
             >
+              <option value="">Choose...</option>
               {this.state.categories.map(category => {
                 return (
                   <option key={category._id} value={category._id}>
@@ -188,7 +190,6 @@ class AddNote extends React.Component {
                   </option>
                 );
               })}
-              <option>Choose...</option>
             </select>
           </div>
           <input type="submit" className="btn btn-primary" value="Submit" />

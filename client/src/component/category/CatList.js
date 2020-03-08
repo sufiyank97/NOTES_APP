@@ -1,6 +1,6 @@
 import React from "react";
 
-function Cat_List({ id, name, handleRemove }) {
+function CatList({ id, name, handleRemove }) {
   return (
     <tr>
       <td>{name}</td>
@@ -17,4 +17,4 @@ function Cat_List({ id, name, handleRemove }) {
     </tr>
   );
 }
-export default Cat_List;
+export default CatList;

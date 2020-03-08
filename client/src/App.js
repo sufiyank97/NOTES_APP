@@ -1,10 +1,10 @@
 import React from "react";
 // import logo from './logo.svg';
 // import './App.css';
-import CategoriesList from "./component/category/List";
+import CategoriesList from "./component/category/List1";
 
-import NotesList from "./component/notes/notesList";
-import AddNote from "./component/notes/addNote";
+import NotesList from "./component/notes/notesList1";
+import AddNote from "./component/notes/addNote1";
 import NoteShow from "./component/notes/noteShow";
 
 import Register from "./component/Register/Register";
@@ -33,22 +33,22 @@ function App(props) {
               </Link>
             </React.Fragment>
           ) : (
-            <React.Fragment>
-              <Link to="/categories" className="nav-link">
-                Categories
+              <React.Fragment>
+                <Link to="/categories" className="nav-link">
+                  Categories
               </Link>
-              <Link to="/notes" className="nav-link">
-                Notes
+                <Link to="/notes" className="nav-link">
+                  Notes
               </Link>
-              {/* <Link to='/delete' className="nav-link" > Settings </Link> */}
-              <Link to="/account" className="nav-link">
-                Account
+                {/* <Link to='/delete' className="nav-link" > Settings </Link> */}
+                <Link to="/account" className="nav-link">
+                  Account
               </Link>
-              <Link to="/logout" className="nav-link">
-                Logout
+                <Link to="/logout" className="nav-link">
+                  Logout
               </Link>
-            </React.Fragment>
-          )}
+              </React.Fragment>
+            )}
         </nav>
         <Switch>
           <Route path="/notes/edit/:id" exact component={AddNote} />
