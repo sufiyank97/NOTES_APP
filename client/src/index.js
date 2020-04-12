@@ -10,10 +10,10 @@ import axios from "./config/axios";
 import { setUser } from "./actions/user";
 const store = configureStore();
 //initial store value
-console.log(store.getState());
-store.subscribe(() => {
-  console.log(store.getState());
-});
+// console.log(store.getState());
+// store.subscribe(() => {
+//   console.log(store.getState());
+// });
 // handle page reloads
 if (localStorage.getItem("token")) {
   axios

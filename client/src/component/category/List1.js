@@ -23,7 +23,8 @@ const CategoriesList = () => {
         fetchData()
 
     }, [])
-
+    console.log(axios
+    )
     const handleAdd = (e) => {
         e.preventDefault()
         const body = { name: val }
